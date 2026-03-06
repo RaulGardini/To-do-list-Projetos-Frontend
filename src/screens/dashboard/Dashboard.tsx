@@ -18,16 +18,12 @@ import {
     NewButtonGlowBlue,
     NewButtonText,
     Content,
-    Greeting,
-    GreetingHighlight,
-    SubGreeting,
     ProjectGrid,
     ProjectCard,
     ProjectName,
     StatusBadge,
     Loading,
     EmptyState,
-    EmptyIcon,
     EmptyTitle,
     EmptySubtitle,
 } from "./Dashboard.style";
@@ -127,7 +123,7 @@ const Dashboard: React.FC = () => {
                 ) : (
                     <ProjectGrid>
                         {projetos.map((projeto) => (
-                            <ProjectCard key={projeto.projetoId}>
+                            <ProjectCard key={projeto.projetoId} onClick={() => navigate(`/project/${projeto.projetoId}`)}>
                                 <ProjectName>{projeto.nome}</ProjectName>
                                 <StatusBadge $status={projeto.status}>
                                     {statusLabel(projeto.status)}
